@@ -1,0 +1,24 @@
+html, body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #16181a;
+}
+.group .about-taskphamer{
+    color: #fff;
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+}
+.group{
+    width: 100%;
+}
+.group .para-about-taskphamer{
+    color: #fff;
+    font-size: 1.6rem;
+    /* text-shadow: 3px 3px rgba(0, 0, 0, 0.4); */
+}
+.group .about-me{
+    color: #fff;
+    font-size: 20px;
+}

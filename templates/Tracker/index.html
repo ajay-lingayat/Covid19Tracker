@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <title> Covid19Tracker | Home </title>
+
+        <!-- Font Awesome kit-->
+        <script src="https://kit.fontawesome.com/8065491d7c.js" crossorigin="anonymous"></script>
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    </head>
+    <body>
+      
+      <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mynav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="/" class="navbar-brand">
+            Covid19Tracker
+        </a>
+
+        <div class="collapse navbar-collapse" id="mynav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="/" class="nav-link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="about" class="nav-link">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact" class="nav-link">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form action="country" method="POST" class="form-inline" id="navBarSearchForm" style="width: 430px !important;">
+                      {% csrf_token %}
+                        <input class="form-control mr-lg-2" name="country" type="search" placeholder="Search Country" aria-label="Search" style="width: 330px !important;">
+                        <button class="btn btn-warning my-2 my-sm-0" type="submit" style="width: 90px !important;">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        <br>
+
+        <div class="main">
+            <div id="Name">
+              <h1>
+                World
+                <center>
+                  <div class="underline"></div>
+                </center>
+              </h1>
+            </div>
+            <div class="content">
+              <div class="cases">
+                <h1>
+                  {{ cases }}
+                </h1>
+                  Total Cases
+              </div>
+              <div class="deaths">
+                <h1>
+                  {{ deaths }}
+                </h1>
+                  Total Deaths
+              </div>
+              <div class="recoveries">
+                <h1>
+                  {{ recovered }}
+                </h1>
+                  Total Recovered
+              </div>
+            </div>
+        </div>
+
+        <br>
+
+            <table class="table table-striped table-responsive" data-aos="fade-right">
+                <thead class="bg-primary">
+                  <tr>
+                    <th scope="col" class="sticky">S.No.</th>
+                    <th scope="col" class="sticky">Country, Other</th>
+                    <th scope="col" class="sticky">New Cases</th>
+                    <th scope="col" class="sticky">Total Cases</th>
+                    <th scope="col" class="sticky">Total Deaths</th>
+                    <th scope="col" class="sticky">New Deaths</th>
+                    <th scope="col" class="sticky">Total Recovered</th>
+                    <th scope="col" class="sticky">Active Cases</th>
+                    <th scope="col" class="sticky">Serious, Critical</th>
+                    <th scope="col" class="sticky">Tot Cases/1M pop</th>
+                    <th scope="col" class="sticky">Deaths/1M pop</th>
+                    <th scope="col" class="sticky">total Tests</th>
+                    <th scope="col" class="sticky">Tests/1M pop</th>
+                    <th scope="col" class="sticky">Population</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"></th>
+                    {% for i in First_Row %}
+                        <td>{{ i }}</td>
+                    {% endfor %}
+                  </tr>
+                  {% for i in List %}
+                  <tr>
+                    <th scope="row">
+                      {{ i.0 }}
+                    </th>
+                    <td>{{ i.1 }}</td>
+                    <td>{{ i.2 }}</td>
+                    <td>{{ i.3 }}</td>
+                    <td>{{ i.4 }}</td>
+                    <td>{{ i.5 }}</td>
+                    <td>{{ i.6 }}</td>
+                    <td>{{ i.7 }}</td>
+                    <td>{{ i.8 }}</td>
+                    <td>{{ i.9 }}</td>
+                    <td>{{ i.10 }}</td>
+                    <td>{{ i.11 }}</td>
+                    <td>{{ i.12 }}</td>
+                    <td>{{ i.13 }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+        <!-- Fade Scripts Start -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                easing: 'linear',
+                duration: 1000,
+            });
+        </script>
+        <!-- Fade Scripts End -->
+    </body>
+</html>
