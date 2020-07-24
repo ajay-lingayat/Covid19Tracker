@@ -166,5 +166,34 @@ def data_grab():
             return data
         else:
             return False
-    except:
+    except Exception as e:
+        print(e)
         return False
+
+def grab_graph_data():
+    try:
+        URL = r"https://www.worldometers.info/coronavirus/?utm_campaign=homeAdvegas1%3F"
+        r = requests.get(URL)
+        r = r.text
+        soup = BeautifulSoup(r, 'html.parser')
+
+        data = soup.find_all('script', attrs = {'type': 'text/javascript'})
+
+        regex_pattern = r".+(xAxis:?).+"
+
+        Found_Scripts = list()
+        for i in data:
+            item = re.findall(regex_pattern, str(i))
+            if item:
+                Found_Scripts.append(str(i))
+
+        regex_pattern = r"xAxis:(.+?)"
+        for i in Found_Scripts:
+            item = re.findall(regex_pattern, i)
+            print(item)
+
+    except Exception as e:
+        print(e)
+        return False
+
+# grab_graph_data()

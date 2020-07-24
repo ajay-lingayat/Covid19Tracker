@@ -148,3 +148,9 @@ def contact( request ):
 
 def about( request ):
     return render(request, 'Tracker/about.html')
+
+def Error404(request, exception):
+    return render(request, 'errors/404.html', {})
+
+def Error500(request):
+    return render(request, 'errors/500.html', {})

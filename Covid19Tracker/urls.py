@@ -8,3 +8,6 @@ urlpatterns = [
     path('', include('Tracker.urls')),
 ]
 urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'Tracker.views.Error404'
+handler500 = 'Tracker.views.Error500'

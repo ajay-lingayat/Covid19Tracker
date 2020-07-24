@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Galada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Galada&family=Ubuntu:ital,wght@1,300&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+html, body{
+    height: 100%;
+}
+.error{
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    display: inline-block;
+    padding: 15% 0;
+}
+.error i{
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+.error h1{
+    margin: 0 auto;
+    font-family: "Galada","sans-serif";
+}
+.error p{
+    margin: 0 auto;
+    margin-top: 20px;
+    font-family: "Ubuntu","sans-serif";
+}

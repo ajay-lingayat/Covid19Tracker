@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+html, body{
+    height: 100%;
+}
+table thead{
+    color: #fff;
+}
+.sticky{
+    background: #007bff;
+    position: sticky !important;
+    top: 0 !important;
+}
+.main{
+    width: 100%;
+}
+#Name{
+    color: #007bff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.underline{
+    width: 50px;
+    background-color: #007bff;
+    height: 1.5px;
+    border: none;
+}
+.content{
+    margin-top: 30px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: transparent;
+}
+.content .cases{
+    width: 300px;
+    min-width: 300px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: x-large;
+    text-align: center;
+}
+.content .cases h1{
+    color: #999;
+    font-size: xx-large;
+}
+.content .deaths{
+    width: 300px;
+    min-width: 300px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: x-large;
+    text-align: center;
+}
+.content .deaths h1{
+    color: #ff0066;
+    font-size: xx-large;
+}
+.content .recoveries{
+    width: 300px;
+    min-width: 300px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: x-large;
+    text-align: center;
+}
+.content .recoveries h1{
+    color: lime;
+    font-size: xx-large;
+}
+.content .infected{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .infected h1{
+    color: #999;
+    font-size: x-large;
+}
+.content .conditions{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .conditions h1{
+    font-size: x-large;
+}
+.content .critical{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .critical h1{
+    color: #ff0066;
+    font-size: x-large;
+}
+.content .Recoveries{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .Recoveries h1{
+    color: lime;
+    font-size: x-large;
+}
