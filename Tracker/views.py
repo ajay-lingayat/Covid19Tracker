@@ -10,13 +10,14 @@ from .track import grab_data, get_data
 from .check import check_country
 import os
 
-# Create your views here.
 def index( request ):
 
     List = grab_data()
     cases = List[1]
     deaths = List[2]
     recovered = List[3]
+    actives = List[4]
+    closed = List[5]
     List = List[0]
 
     if List:
@@ -50,6 +51,8 @@ def index( request ):
                 'cases': cases,
                 'deaths': deaths,
                 'recovered': recovered,
+                'actives': actives,
+                'closed': closed,
             }
             t = loader.get_template('Tracker/index.html')
             return HttpResponse(t.render(Context, request))

@@ -99,6 +99,72 @@
 
         <br>
 
+        <div class="main">
+          <div id="Name">
+            <h2>
+              Active Cases
+              <center>
+                <div class="underline"></div>
+              </center>
+            </h2>
+          </div>
+          <div class="content">
+            <div class="infected">
+              <h1>
+                {{ actives.0 }}
+              </h1>
+                Currently Infected Patients
+            </div>
+            <div class="conditions">
+              <h1>
+                {{ actives.1 }}
+              </h1>
+                in Mild Condition
+            </div>
+            <div class="critical">
+              <h1>
+                {{  actives.3 }}
+              </h1>
+                 Serious / Critical
+            </div>
+          </div>
+      </div>
+
+      <br>
+
+      <div class="main">
+        <div id="Name">
+          <h2>
+            Closed Cases
+            <center>
+              <div class="underline"></div>
+            </center>
+          </h2>
+        </div>
+        <div class="content">
+          <div class="infected">
+            <h1>
+              {{ actives.2 }}
+            </h1>
+              Cases which had an outcome
+          </div>
+          <div class="Recoveries">
+            <h1>
+              {{ actives.4 }}
+            </h1>
+              Recovered / Discharged
+          </div>
+          <div class="critical">
+            <h1>
+              {{  actives.5 }}
+            </h1>
+               Deaths
+          </div>
+        </div>
+    </div>
+
+        <br>
+
             <table class="table table-striped table-responsive" data-aos="fade-right">
                 <thead class="bg-primary">
                   <tr>

@@ -1,10 +1,6 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-# import os
-
-# x = os.listdir(r'C:/Users/omsai/django_projects/CovidTracker/static/png/')
-# print(len(x))
 
 def grab_data():
     try:
@@ -52,8 +48,15 @@ def grab_data():
                 rows.append(item)
             except Exception as e:
                 print(e)
+        
+        data = data_grab()
+        if data:
+           actives = data[0]
+           closed = data[1]
+        else:
+            return False
 
-        Info = [rows, cases, deaths, recovered]
+        Info = [rows, cases, deaths, recovered, actives, closed]
         return Info
     except Exception as e:
         print(e)
@@ -106,4 +109,62 @@ def get_data( URL ):
         return data
     except Exception as e:
         print(e)
+        return False
+
+def data_grab():
+    try:
+        URL = r"https://www.worldometers.info/coronavirus/?utm_campaign=homeAdvegas1%3F"
+        r = requests.get(URL)
+        r = r.text
+        soup = BeautifulSoup(r, 'html.parser')
+
+        data = soup.find_all('div', attrs = {'class': 'panel_front'})
+
+        regex_pattern = r">(.+?)<"
+
+        main_numbers = list()
+        for i in data:
+            soup = BeautifulSoup(str(i), 'html.parser')
+            item = soup.find_all('div', attrs = {'class': 'number-table-main'})
+            if item:
+                for j in item:
+                    val = re.findall(regex_pattern, str(j))
+                    if val:
+                        for k in val:
+                            main_numbers.append(k)
+
+        regex_pattern = r">\s*(.+?)<"
+
+        secondary_numbers = list()
+        for i in data:
+            soup = BeautifulSoup(str(i), 'html.parser')
+            item = soup.find_all('span', attrs = {'class': 'number-table'})
+            if item:
+                for j in item:
+                    val = re.findall(regex_pattern, str(j))
+                    if val:
+                        for k in val:
+                            secondary_numbers.append(k)
+            
+        combined_List = list()
+        for i in range(4):
+            try:
+                combined_List.append(main_numbers[i])
+            except Exception as e:
+                print(e)
+            try:
+                combined_List.append(secondary_numbers[i])
+            except Exception as e:
+                print(e)
+
+        combined_Int_List = list()
+        for i in combined_List:
+            combined_Int_List.append(i.replace(',','').strip())
+
+        data = [combined_List, combined_Int_List]
+        if data:
+            return data
+        else:
+            return False
+    except:
         return False

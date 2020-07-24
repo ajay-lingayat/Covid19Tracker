@@ -78,3 +78,54 @@ table thead{
     color: lime;
     font-size: xx-large;
 }
+.content .infected{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .infected h1{
+    color: #999;
+    font-size: x-large;
+}
+.content .conditions{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .conditions h1{
+    font-size: x-large;
+}
+.content .critical{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .critical h1{
+    color: #ff0066;
+    font-size: x-large;
+}
+.content .Recoveries{
+    width: 250px;
+    min-width: 250px;
+    background-color: transparent;
+    height: 100px;
+    color: #000;
+    font-size: large;
+    text-align: center;
+}
+.content .Recoveries h1{
+    color: lime;
+    font-size: x-large;
+}
