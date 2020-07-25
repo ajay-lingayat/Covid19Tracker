@@ -5,4 +5,4 @@ Covid19Tracker is a small college project made using Django Framework. It scrape
 
 After Searching a country:
 
-![Broken Image](https://raw.githubusercontent.com/Ajay2810-hub/Covid19Tracker/master/static/images/info1.png?token=AM6IWWTJFSHT7AWY2GE5ISC7DRISI)
+![Broken Image](https://raw.githubusercontent.com/Ajay2810-hub/Covid19Tracker/master/static/images/info1.png?token=AM6IWWVUNZDUWJDYVGV6XG27DRIW4)
