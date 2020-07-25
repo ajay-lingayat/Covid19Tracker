@@ -138,7 +138,7 @@ EMAIL_PORT = 587
 
 # Optional SMTP authentication information for EMAIL_HOST.
 EMAIL_HOST_USER = 'resumebuilder2810@gmail.com'
-EMAIL_HOST_PASSWORD = 'ResumeBuilder@@2810'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
